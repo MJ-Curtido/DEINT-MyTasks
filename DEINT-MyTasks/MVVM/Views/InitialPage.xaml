@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DEINT_MyTasks.MVVM.Views.InitialPage"
+             Title="Mis tareas">
+    <Grid RowDefinitions=".1*, .3*, .6*">
+        <Label Text="Mis Tareas" Grid.Row="0"/>
+
+        <Grid Grid.Row="1" RowDefinitions=".2*, .8*">
+            <Label Text="CATEGORIAS" Grid.Row="0"/>
+
+            <CollectionView ItemsSource="{Binding Categories}">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="2"/>
+                </CollectionView.ItemsLayout>
+            </CollectionView>
+        </Grid>
+
+        <Grid Grid.Row="2" RowDefinitions=".2*, .8*">
+            <Label StyleClass="LightBlue,SubHeader" Text="TAREAS PENDIENTES" />
+            <CollectionView Grid.Row="1" ItemsSource="{Binding Tasks}"
+                            ItemsUpdatingScrollMode="KeepLastItemInView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Transparent">
+                            <HorizontalStackLayout>
+                                <CheckBox
+                                    x:Name="checkBox"
+                                    IsChecked="{Binding Completed}"
+                                    VerticalOptions="Center"
+                                     />
+                                <Label Text="{Binding TxtTask}" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger
+                                            Binding="{Binding Source={x:Reference checkBox}, Path=IsChecked}"
+                                            TargetType="Label"
+                                            Value="True">
+                                            <Setter Property="TextDecorations" Value="Strikethrough" />
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </Grid>
+</ContentPage>
