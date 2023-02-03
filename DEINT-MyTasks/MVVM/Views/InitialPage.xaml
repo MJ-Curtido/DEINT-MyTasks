@@ -17,7 +17,7 @@
         </Grid>
 
         <Grid Grid.Row="2" RowDefinitions=".2*, .8*">
-            <Label StyleClass="LightBlue,SubHeader" Text="TAREAS PENDIENTES" />
+            <Label Grid.Row="0" StyleClass="LightBlue,SubHeader" Text="TAREAS PENDIENTES" />
             <CollectionView Grid.Row="1" ItemsSource="{Binding Tasks}"
                             ItemsUpdatingScrollMode="KeepLastItemInView">
                 <CollectionView.ItemTemplate>

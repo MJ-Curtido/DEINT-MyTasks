@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DEINT_MyTasks.MVVM.Models
+﻿namespace DEINT_MyTasks.MVVM.Models
 {
     public class Task
     {
         public String TxtTask { get; set; }
-        public String IdCategory { get; set; }
+        public int IdCategory { get; set; }
         public Boolean Completed { get; set; }
 
-        public Task(String TxtTask, String IdCategory)
+        public Task(String TxtTask, int IdCategory)
         {
             this.TxtTask = TxtTask;
             this.IdCategory = IdCategory;
