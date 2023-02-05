@@ -4,10 +4,19 @@ namespace DEINT_MyTasks.MVVM.Views;
 
 public partial class InitialPage : ContentPage
 {
+	private MyTasksViewModel viewModel;
+
 	public InitialPage()
 	{
 		InitializeComponent();
 
-		BindingContext = new MyTasksViewModel();
+		viewModel= new MyTasksViewModel();
+
+		BindingContext = viewModel;
 	}
+
+    private void checkBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+		viewModel.completarCategorias();
+    }
 }

@@ -9,10 +9,19 @@
         <Grid Grid.Row="1" RowDefinitions=".2*, .8*">
             <Label Text="CATEGORIAS" Grid.Row="0"/>
 
-            <CollectionView ItemsSource="{Binding Categories}">
+            <CollectionView ItemsSource="{Binding Categories}" Grid.Row="1">
                 <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Horizontal" ItemSpacing="2"/>
                 </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding NumTasksSinCompletar, StringFormat='{0} tasks'}"/>
+                            <Label Text="{Binding TxtCategory}"/>
+                            <ProgressBar ProgressColor="HotPink" BackgroundColor="White" Progress="{Binding PorcentajeCompletado}"/>
+                        </VerticalStackLayout>                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
 
@@ -28,6 +37,7 @@
                                     x:Name="checkBox"
                                     IsChecked="{Binding Completed}"
                                     VerticalOptions="Center"
+                                    CheckedChanged="checkBox_CheckedChanged"
                                      />
                                 <Label Text="{Binding TxtTask}" VerticalOptions="Center">
                                     <Label.Triggers>

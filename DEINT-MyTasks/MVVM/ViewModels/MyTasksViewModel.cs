@@ -32,6 +32,35 @@ namespace DEINT_MyTasks.MVVM.ViewModels
                 new Task("Hacer skate.", 1),
                 new Task("Limpiar el patio.", 0)
             };
+
+            completarCategorias();
+            }
+
+        public void completarCategorias()
+        {
+            double contTasks;
+            double contTasksSinCompletar;
+
+            for (int i = 0; i < Categories.Count; i++)
+            {
+                contTasks = 0.0;
+                contTasksSinCompletar = 0.0;
+
+                for (int j = 0; j < Tasks.Count; j++)
+                {
+                    if (Categories[i].Id == Tasks[j].IdCategory)
+                    {
+                        contTasks++;
+                        if (!Tasks[j].Completed)
+                        {
+                            contTasksSinCompletar++;
+                        }
+                    }
+                }
+
+                Categories[i].NumTasksSinCompletar = contTasksSinCompletar;
+                Categories[i].PorcentajeCompletado = (contTasks - contTasksSinCompletar) / contTasks;
+            }
         }
     }
 }

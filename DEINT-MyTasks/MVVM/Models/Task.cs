@@ -1,5 +1,9 @@
-﻿namespace DEINT_MyTasks.MVVM.Models
+﻿using PropertyChanged;
+
+namespace DEINT_MyTasks.MVVM.Models
 {
+    [AddINotifyPropertyChangedInterface]
+
     public class Task
     {
         public String TxtTask { get; set; }
