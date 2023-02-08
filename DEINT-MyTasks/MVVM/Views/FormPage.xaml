@@ -6,17 +6,22 @@
     <Grid RowDefinitions=".2*, .7*, .1*">
         <Entry Placeholder="Introduce Nueva Tarea" Grid.Row="0"/>
 
-        <CollectionView ItemsSource="{Binding Categories}">
+        <CollectionView ItemsSource="{Binding Categories}" Grid.Row="1">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
-                        <RadioButton Content ="{Binding TxtCategory}"/>
+                        <RadioButton Content ="{Binding TxtCategory}" GroupName="rbtnCategorias"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+
+        <Grid Grid.Row="2" ColumnDefinitions="*, *">
+            <Button Grid.Column="0" Text="Add Task" Clicked="Button_Clicked"/>
+            <Button Grid.Column="1" Text="Add Category" Clicked="Button_Clicked_1"/>
+        </Grid>
     </Grid>
 </ContentPage>
