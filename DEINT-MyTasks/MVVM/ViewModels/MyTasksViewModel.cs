@@ -34,32 +34,20 @@ namespace DEINT_MyTasks.MVVM.ViewModels
             };
 
             completarCategorias();
-            }
+        }
 
         public void completarCategorias()
         {
             double contTasks;
             double contTasksSinCompletar;
 
-            for (int i = 0; i < Categories.Count; i++)
+            foreach (Category c in Categories)
             {
-                contTasks = 0.0;
-                contTasksSinCompletar = 0.0;
+                contTasks = Tasks.Where(t => t.IdCategory == c.Id).ToList().Count();
+                contTasksSinCompletar = Tasks.Where(t => t.IdCategory == c.Id && !t.Completed).ToList().Count();
 
-                for (int j = 0; j < Tasks.Count; j++)
-                {
-                    if (Categories[i].Id == Tasks[j].IdCategory)
-                    {
-                        contTasks++;
-                        if (!Tasks[j].Completed)
-                        {
-                            contTasksSinCompletar++;
-                        }
-                    }
-                }
-
-                Categories[i].NumTasksSinCompletar = contTasksSinCompletar;
-                Categories[i].PorcentajeCompletado = (contTasks - contTasksSinCompletar) / contTasks;
+                c.NumTasksSinCompletar = contTasksSinCompletar;
+                c.PorcentajeCompletado = (contTasks - contTasksSinCompletar) / contTasks;
             }
         }
     }

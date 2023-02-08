@@ -10,13 +10,18 @@ public partial class InitialPage : ContentPage
 	{
 		InitializeComponent();
 
-		viewModel= new MyTasksViewModel();
+		viewModel = new MyTasksViewModel();
 
 		BindingContext = viewModel;
 	}
 
-    private void checkBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
+	private void checkBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+	{
 		viewModel.completarCategorias();
-    }
+	}
+
+	private void Button_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new FormPage());
+	}
 }

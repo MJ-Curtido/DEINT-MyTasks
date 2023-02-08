@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DEINT_MyTasks.MVVM.Views.FormPage"
+             Title="Añadir nueva tarea">
+    <Grid RowDefinitions=".2*, .7*, .1*">
+        <Entry Placeholder="Introduce Nueva Tarea" Grid.Row="0"/>
+
+        <CollectionView ItemsSource="{Binding Categories}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <RadioButton Content ="{Binding TxtCategory}"/>
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

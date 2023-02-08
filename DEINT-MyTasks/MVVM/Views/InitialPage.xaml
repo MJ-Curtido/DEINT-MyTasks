@@ -3,15 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DEINT_MyTasks.MVVM.Views.InitialPage"
              Title="Mis tareas">
-    <Grid RowDefinitions=".1*, .3*, .6*">
-        <Label Text="Mis Tareas" Grid.Row="0"/>
+    <Grid RowDefinitions=".1*, .3*, .6*" ColumnDefinitions=".9*, .1*">
+        <Label Text="Mis Tareas" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
 
-        <Grid Grid.Row="1" RowDefinitions=".2*, .8*">
+        <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" RowDefinitions=".2*, .8*">
             <Label Text="CATEGORIAS" Grid.Row="0"/>
 
             <CollectionView ItemsSource="{Binding Categories}" Grid.Row="1">
                 <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="2"/>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="15"/>
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -25,7 +25,7 @@
             </CollectionView>
         </Grid>
 
-        <Grid Grid.Row="2" RowDefinitions=".2*, .8*">
+        <Grid Grid.Row="2" Grid.Column="0" RowDefinitions=".2*, .8*">
             <Label Grid.Row="0" StyleClass="LightBlue,SubHeader" Text="TAREAS PENDIENTES" />
             <CollectionView Grid.Row="1" ItemsSource="{Binding Tasks}"
                             ItemsUpdatingScrollMode="KeepLastItemInView">
@@ -55,5 +55,7 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Grid>
+
+        <Button Text="+" Clicked="Button_Clicked" Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </ContentPage>
