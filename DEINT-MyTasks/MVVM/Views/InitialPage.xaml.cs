@@ -22,6 +22,6 @@ public partial class InitialPage : ContentPage
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{
-		Navigation.PushAsync(new FormPage());
+		Navigation.PushAsync(new FormPage(viewModel));
 	}
 }

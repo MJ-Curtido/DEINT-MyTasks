@@ -4,7 +4,7 @@
              x:Class="DEINT_MyTasks.MVVM.Views.FormPage"
              Title="Añadir nueva tarea">
     <Grid RowDefinitions=".2*, .7*, .1*">
-        <Entry Placeholder="Introduce Nueva Tarea" Grid.Row="0"/>
+        <Entry Text="" Placeholder="Introduce Nueva Tarea/Categoría" Grid.Row="0" x:Name="txtTareaCategoria"/>
 
         <CollectionView ItemsSource="{Binding Categories}" Grid.Row="1">
             <CollectionView.ItemsLayout>
@@ -13,7 +13,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
-                        <RadioButton Content ="{Binding TxtCategory}" GroupName="rbtnCategorias"/>
+                        <RadioButton Content ="{Binding TxtCategory}" Value="{Binding Id}" CheckedChanged="RadioButton_CheckedChanged" GroupName="rbtnCategorias"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

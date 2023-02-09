@@ -36,6 +36,16 @@ namespace DEINT_MyTasks.MVVM.ViewModels
             completarCategorias();
         }
 
+        public void anyadirCategoria(Category c)
+        {
+            Categories.Add(c);
+        }
+
+        public void anyadirTarea(Task t)
+        {
+            Tasks.Add(t);
+        }
+
         public void completarCategorias()
         {
             double contTasks;
