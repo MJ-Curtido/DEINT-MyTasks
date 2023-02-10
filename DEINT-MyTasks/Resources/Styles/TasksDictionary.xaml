@@ -18,4 +18,14 @@
         <Setter Property="HorizontalOptions" Value="End"/>
         <Setter Property="Clip" Value="{StaticResource Circulo}"/>
     </Style>
+
+    <Style x:Key="EntryCentrado" TargetType="Entry">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="Placeholder" Value="Introduce Nueva Tarea"/>
+        <Setter Property="FontSize" Value="Large"/>
+    </Style>
+
+    <Style x:Key="BotonesCentrados" TargetType="Button">
+        <Setter Property="CornerRadius" Value="17"/>
+    </Style>
 </ResourceDictionary>

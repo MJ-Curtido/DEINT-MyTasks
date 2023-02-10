@@ -4,7 +4,7 @@
              x:Class="DEINT_MyTasks.MVVM.Views.FormPage"
              Title="Añadir nueva tarea">
     <Grid RowDefinitions=".2*, .7*, .1*">
-        <Entry Text="" Placeholder="Introduce Nueva Tarea/Categoría" Grid.Row="0" x:Name="txtTareaCategoria"/>
+        <Entry Text="" Grid.Row="0" x:Name="txtTareaCategoria" Style="{StaticResource EntryCentrado}"/>
 
         <CollectionView ItemsSource="{Binding Categories}" Grid.Row="1">
             <CollectionView.ItemsLayout>
@@ -20,8 +20,8 @@
         </CollectionView>
 
         <Grid Grid.Row="2" ColumnDefinitions="*, *">
-            <Button Grid.Column="0" Text="Add Task" Clicked="Button_Clicked"/>
-            <Button Grid.Column="1" Text="Add Category" Clicked="Button_Clicked_1"/>
+            <Button Grid.Column="0" Text="Add Task" Clicked="Button_Clicked" Style="{StaticResource BotonesCentrados}" HorizontalOptions="End"/>
+            <Button Grid.Column="1" Text="Add Category" Clicked="Button_Clicked_1" Style="{StaticResource BotonesCentrados}" HorizontalOptions="Start"/>
         </Grid>
     </Grid>
 </ContentPage>

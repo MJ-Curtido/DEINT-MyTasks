@@ -56,6 +56,6 @@
             </CollectionView>
         </Grid>
 
-        <Button Text="+" Clicked="Button_Clicked" Grid.Row="2" Grid.Column="1"/>
+        <Button  Style="{StaticResource CircularButton}" Text="+" Clicked="Button_Clicked" Grid.Row="2" Grid.Column="1"/>
     </Grid>
 </ContentPage>
